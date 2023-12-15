@@ -1,24 +1,17 @@
 <x-app-layout>
-
     @section('content')
-        <h1>Créer une nouvelle tâche</h1>
+        <h1>{{ __('tasks.create_new_task') }}</h1>
 
-        <!-- Formulaire de création de tâche -->
+        <!-- Task creation form -->
         <form action="{{ route('tasks.store') }}" method="POST">
             @csrf
 
-            <div class="mb-3">
-                <label for="title" class="form-label">Titre de la tâche</label>
-                <input type="text" class="form-control" id="title" name="title" required>
+            <div style="margin-bottom: 1rem;">
+                <label for="title">{{ __('tasks.task_title') }}</label>
+                <input type="text" id="title" name="title" required>
             </div>
 
-            <div class="mb-3">
-                <label for="description" class="form-label">Description de la tâche</label>
-                <textarea class="form-control" id="description" name="description" rows="3"></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-primary">Créer la tâche</button>
+            <button type="submit"
+                style="background-color: #3490dc; color: #fff; padding: 0.5rem 1rem; border: none; cursor: pointer;">{{ __('tasks.create_task') }}</button>
         </form>
-    @endsection
-
-</x-app-layout>
+    </x-app-layout>
